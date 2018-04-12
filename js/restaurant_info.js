@@ -65,6 +65,7 @@ function fillRestaurantHTML(restaurant = self.restaurant) {
 
     const image = document.getElementById('restaurant-img');
     image.className = 'restaurant-img';
+    image.setAttribute('alt', restaurant.name);
     image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
     const cuisine = document.getElementById('restaurant-cuisine');
@@ -125,6 +126,7 @@ function fillReviewsHTML(reviews = self.restaurant.reviews){
  */
 function createReviewHTML(review) {
     const li = document.createElement('li');
+    li.setAttribute('tabindex', 0);
     const name = document.createElement('p');
     name.innerHTML = review.name;
     li.appendChild(name);
@@ -151,6 +153,7 @@ function fillBreadcrumb(restaurant = self.restaurant){
     const breadcrumb = document.getElementById('breadcrumb');
     const li = document.createElement('li');
     li.innerHTML = restaurant.name;
+    li.setAttribute('aria-current', 'page');
     breadcrumb.appendChild(li);
 }
 
